@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 Speaker Control</title>
+</head>
+<body>
+  <h2>ESP32 Speaker Control</h2>
+  
+  <h3>Speaker 1 (ESP32 #1)</h3>
+  <button onclick="turnOn1()">Turn On</button>
+  <button onclick="turnOff1()">Turn Off</button>
+
+  <h3>Speaker 2 (ESP32 #2)</h3>
+  <button onclick="turnOn2()">Turn On</button>
+  <button onclick="turnOff2()">Turn Off</button>
+
+  <h3>Speaker 3 (ESP32 #3)</h3>
+  <button onclick="turnOn3()">Turn On</button>
+  <button onclick="turnOff3()">Turn Off</button>
+
+  <h3> Ground Truth (ESP32 #3)</h3>
+  <button onclick="turnOn4()">Turn On</button>
+  <button onclick="turnOff4()">Turn Off</button>
+
+  <h3>Control All Speakers</h3>
+  <button onclick="turnAllOn()">Turn All On</button>
+  <button onclick="turnAllOff()">Turn All Off</button>
+
+  <script>
+    function turnOn1() {
+      fetch('http://192.168.4.74/on');
+    }
+
+    function turnOff1() {
+      fetch('http://192.168.4.74/off');
+    }
+
+    function turnOn2() {
+      fetch('http://192.168.4.75/on');
+    }
+
+    function turnOff2() {
+      fetch('http://192.168.4.75/off');
+    }
+
+    function turnOn3() {
+      fetch('http://192.168.4.73/on');
+    }
+
+    function turnOff3() {
+      fetch('http://192.168.4.73/off');
+    }
+
+    function turnOn4() {
+      fetch('http://192.168.4.78/on');
+    }
+
+    function turnOff4() {
+      fetch('http://192.168.4.78/off');
+    }
+
+    function turnAllOn() {
+      fetch('http://192.168.4.74/on');
+      fetch('http://192.168.4.73/on');
+      fetch('http://192.168.4.75/on');
+      fetch('http://192.168.4.78/on');
+    }
+
+    function turnAllOff() {
+      fetch('http://192.168.4.74/off');
+      fetch('http://192.168.4.73/off');
+      fetch('http://192.168.4.75/off');
+      fetch('http://192.168.4.78/off');
+    }
+  </script>
+</body>
+</html>
